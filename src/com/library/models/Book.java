@@ -12,7 +12,8 @@ public class Book {
     private Date dateOfPurchase;
     private boolean isAvailable;
 
-    public Book(int bookId, Author author, String name, double price, boolean status, String edition, Date dateOfPurchase) {
+
+    public Book(int bookId, Author author, String name, double price, boolean status, String edition, Date dateOfPurchase, boolean isAvailable) {
         this.bookId = bookId;
         this.author = author;
         this.name = name;
@@ -20,6 +21,11 @@ public class Book {
         this.status = status;
         this.edition = edition;
         this.dateOfPurchase = dateOfPurchase;
+        this.isAvailable = isAvailable;
+    }
+
+    public Book( String name) {
+        this.name = name;
     }
 
     public String getTitle() {
@@ -28,12 +34,13 @@ public class Book {
     public Author getAuthor(){
         return author;
     }
-    public String getOwner() {
-        return status ? "Kütüphane" : "Ödünç alınmış";
-    }
     public void changeOwner(boolean isAvailable) {
         this.status = isAvailable;
     }
+    public String getOwner() {
+        return status ? "Kütüphane" : "Ödünç alınmış";
+    }
+
     public void display() {
         System.out.println("Kitap Bilgileri:");
         System.out.println("ID: " + bookId);
@@ -47,14 +54,16 @@ public class Book {
 
 
     public void updateStatus(boolean newStatus) {
+
         this.status = newStatus;
     }
 
 
     public boolean isAvailable() {
-        return isAvailable();
+        return isAvailable;
     }
     public void setAvailable(boolean available) {
+
         this.isAvailable = available;
     }
    
